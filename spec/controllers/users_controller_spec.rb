@@ -37,7 +37,7 @@ RSpec.describe UsersController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all users as @users" do
+    it "assigns all users as users" do
       user = User.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:users)).to eq([user])
@@ -45,7 +45,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "GET #show" do
-    it "assigns the requested user as @user" do
+    it "assigns the requested user as user" do
       user = User.create! valid_attributes
       get :show, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
@@ -53,14 +53,14 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "GET #new" do
-    it "assigns a new user as @user" do
+    it "assigns a new user as user" do
       get :new, {}, valid_session
       expect(assigns(:user)).to be_a_new(User)
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested user as @user" do
+    it "assigns the requested user as user" do
       user = User.create! valid_attributes
       get :edit, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
@@ -75,7 +75,7 @@ RSpec.describe UsersController, type: :controller do
         }.to change(User, :count).by(1)
       end
 
-      it "assigns a newly created user as @user" do
+      it "assigns a newly created user as user" do
         post :create, {:user => valid_attributes}, valid_session
         expect(assigns(:user)).to be_a(User)
         expect(assigns(:user)).to be_persisted
@@ -88,7 +88,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved user as @user" do
+      it "assigns a newly created but unsaved user as user" do
         post :create, {:user => invalid_attributes}, valid_session
         expect(assigns(:user)).to be_a_new(User)
       end
@@ -113,7 +113,7 @@ RSpec.describe UsersController, type: :controller do
         skip("Add assertions for updated state")
       end
 
-      it "assigns the requested user as @user" do
+      it "assigns the requested user as user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
         expect(assigns(:user)).to eq(user)
@@ -127,7 +127,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "with invalid params" do
-      it "assigns the user as @user" do
+      it "assigns the user as user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
         expect(assigns(:user)).to eq(user)
