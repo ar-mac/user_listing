@@ -1,7 +1,12 @@
 FactoryGirl.define do
   factory :project do
-    name "MyString"
-bool ""
+    sequence(:name) { |n| "project ##{n}" }
+  end
+
+  trait :with_users do
+    after(:create) do |project|
+      create_list(:user, 2, project_ids: project.id)
+    end
   end
 
 end
