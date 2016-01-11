@@ -15,7 +15,7 @@ gem 'haml-rails'
 gem 'quiet_assets',             group: :development
 
 gem 'will_paginate'
-# gem 'decent_exposure'
+gem 'decent_exposure'
 # gem 'draper'
 # gem 'decent_decoration'
 gem 'simple_form'
