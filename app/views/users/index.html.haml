@@ -1,25 +1,41 @@
-%h1 Listing users
+%h1= t('app.dashboard')
 
-%table
-  %thead
-    %tr
-      %th= link_to t('users.id'), users_path(order: {id: id_sort})
-      %th= link_to t('users.first_name'), users_path(order: {first_name: first_name_sort})
-      %th= link_to t('users.last_name'), users_path(order: {last_name: last_name_sort})
-      %th= link_to t('users.email'), users_path(order: {email: email_sort})
-      %th= t('users.projects')
-      %th= t('users.controls')
+.row
+  .col-md-8
+    %h2= t('users.table')
+    %table
+      %thead
+        %tr
+          %th= link_to t('users.id'), users_path(order: {id: id_sort})
+          %th= link_to t('users.first_name'), users_path(order: {first_name: first_name_sort})
+          %th= link_to t('users.last_name'), users_path(order: {last_name: last_name_sort})
+          %th= link_to t('users.email'), users_path(order: {email: email_sort})
+          %th= t('users.projects')
+          %th= t('users.controls')
 
-  %tbody
-    - found_users.each do |user|
-      %tr
-        %td= user.id
-        %td= user.first_name
-        %td= user.last_name
-        %td= user.email
-        %td= user.projects.to_sentence(two_words_connector: ', ', last_word_connector: ', ')
-        %td
-          %button= link_to t('users.edit'), edit_user_path(user)
-          %button= link_to t('users.destroy'), user_path(user), method: :delete, data: {confirm: t('users.confirm_destroy', name: user.full_name)}
+      %tbody
+        - found_users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.first_name
+            %td= user.last_name
+            %td= user.email
+            %td= user.projects.to_sentence(two_words_connector: ', ', last_word_connector: ', ')
+            %td
+              %button= link_to t('users.edit'), edit_user_path(user)
+              %button= link_to t('users.destroy'), user_path(user), method: :delete, data: {confirm: t('users.confirm_destroy', name: user.full_name)}
 
-= link_to 'New User', new_user_path
+    = link_to 'New User', new_user_path
+
+  .col-md-4
+    %h2= t('projects.table')
+    %table
+      %thead
+        %tr
+          %th= t('projects.name')
+          %th= t('projects.status')
+      %tbody
+        - projects.each do |project|
+          %tr
+            %td= project.name
+            %td= project.active

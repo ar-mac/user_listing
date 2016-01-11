@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   expose(:user, attributes: :user_params)
   expose(:found_users) { User.by_search_params(search_params).order(order_params) }
+  expose(:projects) { Project.all }
 
   def create
     if user.save
