@@ -4,6 +4,6 @@
       = f.input :first_name
       = f.input :last_name
       = f.input :email
-      = f.association :projects
+      = f.association :projects, collection: Project.active
 
       = f.button :submit

@@ -1,6 +1,6 @@
 = simple_form_for project, url: project_form_path do |f|
   = f.input :name
   = f.input :active
-  = f.association :users
+  = f.association :users, disabled: !project.active
 
   = f.button :submit
