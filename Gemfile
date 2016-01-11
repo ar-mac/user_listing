@@ -18,10 +18,9 @@ gem 'will_paginate'
 # gem 'decent_exposure'
 # gem 'draper'
 # gem 'decent_decoration'
-# gem 'simple_form'
+gem 'simple_form'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring'
   gem 'pry-rails'
