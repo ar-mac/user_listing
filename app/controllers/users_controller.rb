@@ -3,18 +3,6 @@ class UsersController < ApplicationController
   expose(:user, attributes: :user_params)
   expose(:found_users) { User.by_search_params(search_params).order(order_params) }
 
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
   def create
     if user.save
       redirect_to user, notice: 'User was successfully created.'

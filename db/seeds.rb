@@ -1,8 +1,12 @@
+User.destroy_all
+Project.destroy_all
+
 20.times do |n|
+  first_name = Faker::Name.first_name
   User.create(
-    first_name: Faker::Name.first_name,
+    first_name: first_name,
     last_name: Faker::Name.last_name,
-    email: Faker::Internet.email
+    email: Faker::Internet.safe_email(first_name)
   )
 end
 
