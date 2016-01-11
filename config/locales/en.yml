@@ -31,3 +31,7 @@ en:
     last_name: 'last name'
     email: 'email'
     projects: 'projects'
+    controls: 'controls'
+    edit: 'edit'
+    destroy: 'destroy'
+    confirm_destroy: 'user %{name} will be destroyed'

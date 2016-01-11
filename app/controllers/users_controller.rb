@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   expose(:found_users) { User.by_search_params(search_params).order(order_params) }
 
   def create
-    if user.valid?
-      user.project_ids = params[:projects_ids]
-      user.save
+    if user.save
       redirect_to users_path, notice: 'User was successfully created.'
     else
       render :new
@@ -14,9 +12,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if user.valid?
-      user.project_ids = params[:projects_ids]
-      user.save
+    if user.save
       redirect_to users_path, notice: 'User was successfully updated.'
     else
       render :edit
@@ -31,12 +27,12 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :projects_ids)
+    params.require(:user).permit(:first_name, :last_name, :email, project_ids: [])
   end
 
   def search_params
     return {} unless params[:users]
-    params.require(:users).permit(:first_name, :last_name, :email, :projects_ids)
+    params.require(:users).permit(:first_name, :last_name, :email, :project_id)
   end
 
   def order_params
