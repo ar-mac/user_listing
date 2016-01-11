@@ -8,3 +8,11 @@
 input, select {
   font-size: 14px;
 }
+
+table {
+  padding: 20px;
+
+  td {
+    max-width: 600px;
+  }
+}
