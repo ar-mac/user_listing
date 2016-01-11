@@ -3,19 +3,19 @@
 %table
   %thead
     %tr
-      %th=t('users.id')
-      %th=t('users.first_name')
-      %th=t('users.last_name')
-      %th=t('users.email')
-      %th=t('users.projects')
+      %th= t('users.id')
+      %th= t('users.first_name')
+      %th= t('users.last_name')
+      %th= t('users.email')
+      %th= t('users.projects')
 
   %tbody
     - found_users.each do |user|
       %tr
-        %td=user.id
-        %td=user.first_name
-        %td=user.last_name
-        %td=user.email
-        %td=user.projects
+        %td= user.id
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
+        %td= user.projects.to_sentence(two_words_connector: ', ', last_word_connector: ', ')
 
 = link_to 'New User', new_user_path
