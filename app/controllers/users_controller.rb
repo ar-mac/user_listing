@@ -4,16 +4,20 @@ class UsersController < ApplicationController
   expose(:found_users) { User.by_search_params(search_params).order(order_params) }
 
   def create
-    if user.save
-      redirect_to user, notice: 'User was successfully created.'
+    if user.valid?
+      user.project_ids = params[:projects_ids]
+      user.save
+      redirect_to users_path, notice: 'User was successfully created.'
     else
       render :new
     end
   end
 
   def update
-    if user.save
-      redirect_to user, notice: 'User was successfully updated.'
+    if user.valid?
+      user.project_ids = params[:projects_ids]
+      user.save
+      redirect_to users_path, notice: 'User was successfully updated.'
     else
       render :edit
     end
