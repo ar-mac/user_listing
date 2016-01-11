@@ -10,14 +10,14 @@ Project.destroy_all
   )
 end
 
-20.times do |n|
+10.times do |n|
   Project.create(
     name: "#{Faker::Commerce.product_name} #{Faker::Lorem.word}",
     active: true
   )
 end
 
-20.times do |n|
+5.times do |n|
   Project.create(
     name: "#{Faker::Commerce.product_name} #{Faker::Lorem.word}",
     active: false
