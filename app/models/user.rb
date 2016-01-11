@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_and_belongs_to_many :projects
+
   scope :with_first_name, ->(name) { where(first_name: name) if name.present? }
   scope :with_last_name, ->(name) { where(last_name: name) if name.present? }
   scope :with_email, ->(email) { where(emial: email) if email.present? }
