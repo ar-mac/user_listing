@@ -7,6 +7,7 @@ en:
     active: 'active'
     inactive: 'inactive'
     table: 'Projects'
+    new: 'New Project'
   users:
     id: 'id'
     first_name: 'first name'
@@ -18,3 +19,4 @@ en:
     destroy: 'destroy'
     confirm_destroy: 'user %{name} will be destroyed'
     table: 'Users'
+    new: 'New User'

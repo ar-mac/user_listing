@@ -3,13 +3,19 @@
 .row
   .col-md-8
     %h2= t('users.table')
+    %button= link_to t('users.new'), new_user_path
+    %hr
     %table
       %thead
         %tr
-          %th= link_to t('users.id'), users_path(order: {id: id_sort})
-          %th= link_to t('users.first_name'), users_path(order: {first_name: first_name_sort})
-          %th= link_to t('users.last_name'), users_path(order: {last_name: last_name_sort})
-          %th= link_to t('users.email'), users_path(order: {email: email_sort})
+          %th
+            %button= link_to t('users.id'), users_path(order: {id: id_sort})
+          %th
+            %button= link_to t('users.first_name'), users_path(order: {first_name: first_name_sort})
+          %th
+            %button= link_to t('users.last_name'), users_path(order: {last_name: last_name_sort})
+          %th
+            %button= link_to t('users.email'), users_path(order: {email: email_sort})
           %th= t('users.projects')
           %th= t('users.controls')
 
@@ -25,10 +31,11 @@
               %button= link_to t('users.edit'), edit_user_path(user)
               %button= link_to t('users.destroy'), user_path(user), method: :delete, data: {confirm: t('users.confirm_destroy', name: user.full_name)}
 
-    = link_to 'New User', new_user_path
 
   .col-md-4
     %h2= t('projects.table')
+    %button= link_to t('projects.new'), new_project_path
+    %hr
     %table
       %thead
         %tr
@@ -39,3 +46,5 @@
           %tr
             %td= project.name
             %td= project.active
+
+
