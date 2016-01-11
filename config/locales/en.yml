@@ -6,6 +6,9 @@ en:
     name: 'name'
     active: 'active'
     inactive: 'inactive'
+    edit: 'edit'
+    destroy: 'destroy'
+    confirm_destroy: 'project %{name} will be destroyed'
     table: 'Projects'
     new: 'New Project'
   users:
