@@ -3,17 +3,19 @@
 %table
   %thead
     %tr
-      %th
-      %th
-      %th
+      %th=t('users.id')
+      %th=t('users.first_name')
+      %th=t('users.last_name')
+      %th=t('users.email')
+      %th=t('users.projects')
 
   %tbody
-    - users.each do |user|
+    - found_users.each do |user|
       %tr
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+        %td=user.id
+        %td=user.first_name
+        %td=user.last_name
+        %td=user.email
+        %td=user.projects
 
 = link_to 'New User', new_user_path

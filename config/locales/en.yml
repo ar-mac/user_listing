@@ -20,4 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  projects:
+    id: 'id'
+    name: 'name'
+    active: 'active'
+    inactive: 'inactive'
+  users:
+    id: 'id'
+    first_name: 'first name'
+    last_name: 'last name'
+    email: 'email'
+    projects: 'projects'

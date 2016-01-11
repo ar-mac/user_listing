@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   expose(:user, attributes: :user_params)
-  expose(:found_users)
+  expose(:found_users) { User.by_search_params(search_params).order(order_params) }
 
   def index
   end
@@ -38,7 +38,16 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :projects_ids)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :projects_ids)
+  end
+
+  def search_params
+    return {} unless params[:users]
+    params.require(:users).permit(:first_name, :last_name, :email, :projects_ids)
+  end
+
+  def order_params
+    params[:order]
+  end
 end
