@@ -21,6 +21,8 @@ gem 'decent_exposure'
 # gem 'decent_decoration'
 gem 'simple_form'
 
+gem 'searchkick'
+
 group :development, :test do
   gem 'web-console', '2.0.0.beta3'
   gem 'spring'

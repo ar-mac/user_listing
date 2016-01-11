@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   expose(:user, attributes: :user_params)
-  expose(:found_users) { User.by_search_params(search_params).order(order_params) }
+  expose(:found_users) { User.search(search_params, order: order_params, include: :projects) }
   expose(:projects) { Project.all }
 
   def create
@@ -32,8 +32,7 @@ class UsersController < ApplicationController
   end
 
   def search_params
-    return {} unless params[:users]
-    params.require(:users).permit(:first_name, :last_name, :email, :project_id)
+    params.fetch(:search, {})[:q].present? ? params[:search][:q] : '*'
   end
 
   def order_params

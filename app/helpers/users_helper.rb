@@ -1,10 +1,5 @@
 module UsersHelper
 
-  def id_sort
-    id_order = params.fetch(:order, {}).fetch(:id, {})
-    return ['asc', {}].include?(id_order) ? 'desc' : 'asc'
-  end
-
   def first_name_sort
     first_name_order = params.fetch(:order, {}).fetch(:first_name, {})
     return ['asc', {}].include?(first_name_order) ? 'desc' : 'asc'

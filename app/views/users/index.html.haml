@@ -1,6 +1,10 @@
 %h1= t('app.dashboard')
 
 .row
+  .col-md-4.col-md-offset-4
+    = simple_form_for :search, url: users_path, method: :get do |f|
+      = f.input :q
+.row
   .col-md-8
     %h2= t('users.table')
     %button= link_to t('users.new'), new_user_path
@@ -8,8 +12,6 @@
     %table
       %thead
         %tr
-          %th
-            %button= link_to t('users.id'), users_path(order: {id: id_sort})
           %th
             %button= link_to t('users.first_name'), users_path(order: {first_name: first_name_sort})
           %th
@@ -22,7 +24,6 @@
       %tbody
         - found_users.each do |user|
           %tr
-            %td= user.id
             %td= user.first_name
             %td= user.last_name
             %td= user.email

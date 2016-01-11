@@ -10,8 +10,9 @@ Project.destroy_all
   )
 end
 
+projects = []
 10.times do |n|
-  Project.create(
+  projects << Project.create(
     name: "#{Faker::Commerce.product_name} #{Faker::Lorem.word}",
     active: true
   )
@@ -24,9 +25,8 @@ end
   )
 end
 
-projects = Project.where(active: true)
-users = User.all
-
-users.each do |user|
+User.all.each do |user|
   user.projects = projects.sample(rand(0..3))
 end
+
+User.reindex
