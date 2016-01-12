@@ -26,6 +26,13 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  describe '#edit' do
+    let(:call_request) { get :edit }
+    let(:project) { create(:project) }
+
+    it_behaves_like 'an action rendering view'
+  end
+
   describe '#update' do
     let(:call_request) { put :update, id: project.id, project: attributes }
     let(:project) { create(:project) }
@@ -42,6 +49,14 @@ RSpec.describe ProjectsController, type: :controller do
       end
       it_behaves_like 'an action updating object', :name, expect_failure: true
     end
+  end
+
+  describe '#destroy' do
+    let(:call_request) { delete :destroy, id: project.id }
+    let(:project) { create(:project) }
+
+    it_behaves_like 'an action destroying object'
+    it_behaves_like 'an action redirecting to', -> { users_path }
   end
 
 
