@@ -20,14 +20,14 @@ RSpec.describe ProjectsController, type: :controller do
       let(:attributes) { {name: ''} }
 
       it_behaves_like 'an action rendering view' do
-        let(:view) { 'projects/new' }
+        let(:view) { 'new' }
       end
       it_behaves_like 'an action creating object', :name, expect_failure: true
     end
   end
 
   describe '#edit' do
-    let(:call_request) { get :edit }
+    let(:call_request) { get :edit, id: project.id }
     let(:project) { create(:project) }
 
     it_behaves_like 'an action rendering view'
@@ -45,7 +45,7 @@ RSpec.describe ProjectsController, type: :controller do
       let(:attributes) { {name: ''} }
 
       it_behaves_like 'an action rendering view' do
-        let(:view) { 'projects/edit' }
+        let(:view) { 'edit' }
       end
       it_behaves_like 'an action updating object', :name, expect_failure: true
     end

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  resources :users
-  resource :project, except: :show
+  with_options except: :show do
+    resources :users
+    resource :project
+  end
 end
