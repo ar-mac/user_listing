@@ -13,11 +13,11 @@
       %thead
         %tr
           %th
-            %button= link_to t('users.first_name'), users_path(order: {first_name: first_name_sort})
+            %button= link_to t('users.first_name'), users_path(params_for_order_column(:first_name))
           %th
-            %button= link_to t('users.last_name'), users_path(order: {last_name: last_name_sort})
+            %button= link_to t('users.last_name'), users_path(params_for_order_column(:last_name))
           %th
-            %button= link_to t('users.email'), users_path(order: {email: email_sort})
+            %button= link_to t('users.email'), users_path(params_for_order_column(:email))
           %th= t('users.projects')
           %th= t('users.controls')
 
