@@ -2,6 +2,10 @@ class Project < ActiveRecord::Base
 
   has_and_belongs_to_many :users
 
+  validates :name,
+            presence: true,
+            length: { in: 2..20 }
+
   after_commit :reindex_users
 
   scope :active, -> { where(active: true) }
@@ -11,6 +15,6 @@ class Project < ActiveRecord::Base
   end
 
   def reindex_users
-    users.reindex
+    User.reindex
   end
 end

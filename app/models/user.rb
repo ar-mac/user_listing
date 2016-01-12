@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
             length: { in: 2..20 }
   validates :email,
             presence: true,
-            format: { with: EMAIL_REGEX }
+            format: { with: EMAIL_REGEX },
+            length: { maximum: 40 }
 
   def search_data
     {
