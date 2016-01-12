@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UsersController do
-
-
   describe '#index' do
     let(:call_request) { get :index, params }
     let(:params) { {} }
@@ -68,5 +66,4 @@ RSpec.describe UsersController do
     it_behaves_like 'an action destroying object'
     it_behaves_like 'an action redirecting to', -> { users_path }
   end
-  
 end
