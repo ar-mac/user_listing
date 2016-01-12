@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
   expose(:project, attributes: :project_params)
 
   def create

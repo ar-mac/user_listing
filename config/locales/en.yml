@@ -11,6 +11,9 @@ en:
     confirm_destroy: 'project %{name} will be destroyed'
     table: 'Projects'
     new: 'New Project'
+    title:
+      new: 'New project'
+      edit: 'Edit project'
   users:
     id: 'id'
     first_name: 'first name'
@@ -23,3 +26,7 @@ en:
     confirm_destroy: 'user %{name} will be destroyed'
     table: 'Users'
     new: 'New User'
+    title:
+      new: 'New user'
+      edit: 'Edit user'
+

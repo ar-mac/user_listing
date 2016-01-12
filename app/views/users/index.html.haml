@@ -1,7 +1,7 @@
 %h1= t('app.dashboard')
 
 .row
-  .col-md-4.col-md-offset-4
+  .col-md-2.col-md-offset-5
     = simple_form_for :search, url: users_path, method: :get do |f|
       = f.input :q
 
@@ -28,7 +28,7 @@
             %td= user.first_name
             %td= user.last_name
             %td= user.email
-            %td= user.projects.to_sentence(two_words_connector: ', ', last_word_connector: ', ')
+            %td= user.projects_list
             %td
               %button= link_to t('users.edit'), edit_user_path(user)
               %button= link_to t('users.destroy'), user_path(user), method: :delete, data: {confirm: t('users.confirm_destroy', name: user.full_name)}

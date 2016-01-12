@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     }
   end
 
+  def projects_list
+    projects.to_sentence(two_words_connector: ', ', last_word_connector: ', ')
+  end
+
   def full_name
     [first_name, last_name].join(' ')
   end

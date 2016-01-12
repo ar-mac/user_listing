@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   expose(:user, attributes: :user_params)
   expose(:found_users) { User.search(search_params, order: order_params, include: :projects) }
   expose(:projects) { Project.all }
