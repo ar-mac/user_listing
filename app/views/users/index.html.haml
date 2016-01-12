@@ -4,6 +4,7 @@
   .col-md-4.col-md-offset-4
     = simple_form_for :search, url: users_path, method: :get do |f|
       = f.input :q
+
 .row
   .col-md-8
     %h2= t('users.table')
@@ -32,7 +33,6 @@
               %button= link_to t('users.edit'), edit_user_path(user)
               %button= link_to t('users.destroy'), user_path(user), method: :delete, data: {confirm: t('users.confirm_destroy', name: user.full_name)}
 
-
   .col-md-4
     %h2= t('projects.table')
     %button= link_to t('projects.new'), new_project_path
@@ -51,6 +51,3 @@
             %td
               %button= link_to t('projects.edit'), edit_project_path(id: project.id)
               %button= link_to t('projects.destroy'), project_path(id: project.id), method: :delete, data: {confirm: t('projects.confirm_destroy', name: project.name)}
-
-
-
