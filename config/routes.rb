@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   with_options except: :show do
     resources :users
-    resource :project
+    resources :projects, except: :index
   end
 end
