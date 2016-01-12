@@ -37,4 +37,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include Selleo::XhrPersistence
   config.include Selleo::ControllerMacros
+  config.include FactoryGirl::Syntax::Methods
 end
