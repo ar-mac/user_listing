@@ -1,15 +1,19 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the UsersHelper. For example:
-#
-# describe UsersHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe UsersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe UsersHelper do
+  describe '#params_for_column_ordering' do
+    let(:method) { params_for_column_ordering(column_key) }
+
+    context 'first_name column' do
+      let(:column_key) { :first_name }
+
+      it { expect(method).to include({order: {first_name: 'desc'}}) }
+
+      context 'descending ordering in params' do
+        let(:params) { {order: {first_name: 'desc'}} }
+
+        it { expect(method).to include({order: {first_name: 'asc'}}) }
+      end
+    end
+  end
 end
