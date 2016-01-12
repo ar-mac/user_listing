@@ -49,5 +49,5 @@
             %td= project.name
             %td= project.active
             %td
-              %button= link_to t('projects.edit'), edit_project_path(id: project.id)
-              %button= link_to t('projects.destroy'), project_path(id: project.id), method: :delete, data: {confirm: t('projects.confirm_destroy', name: project.name)}
+              %button= link_to t('projects.edit'), edit_project_path(project)
+              %button= link_to t('projects.destroy'), project_path(project), method: :delete, data: {confirm: t('projects.confirm_destroy', name: project.name)}
