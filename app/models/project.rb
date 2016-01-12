@@ -14,6 +14,8 @@ class Project < ActiveRecord::Base
     name
   end
 
+  private
+
   def reindex_users
     User.reindex
   end
