@@ -35,6 +35,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.0'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'fuubar', '~> 2.0.0'
   gem 'selleo-controller_tests',  github: 'Selleo/selleo-controller_tests'
 end
