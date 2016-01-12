@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
     }
   end
 
+  # methods below normally would go to decorator, but because of the project size they wont
+
   def projects_list
     projects.to_sentence(two_words_connector: ', ', last_word_connector: ', ')
   end
