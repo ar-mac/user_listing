@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   expose(:user, attributes: :user_params)
   expose(:q) { User.search(params[:q]) }
+
+  #N+1 query of projects because of https://github.com/activerecord-hackery/ransack#problem-with-distinct-selects
+  #tried to resolve but fail
   expose(:found_users) { q.result(distinct: true).includes(:projects).paginate(page: params[:page]) }
   expose(:projects) { Project.all }
 
