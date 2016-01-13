@@ -10,26 +10,14 @@ Project.destroy_all
   )
 end
 
-projects = []
-10.times do |n|
-  projects << Project.create(
-    name: "#{Faker::Commerce.product_name} #{Faker::Lorem.word}",
-    active: true
-  )
-end
-
-5.times do |n|
+15.times do |n|
   Project.create(
-    name: "#{Faker::Commerce.product_name} #{Faker::Lorem.word}",
-    active: false
+    name: Faker::Commerce.product_name.truncate(15),
+    active: n % 3 > 0
   )
 end
 
+projects = Project.active
 User.all.each do |user|
   user.projects = projects.sample(rand(0..3))
 end
-
-User.reindex
-
-# ActiveRecord::RecordInvalid: Validation failed: Name is too long (maximum is 20 characters)
-# can not run seed

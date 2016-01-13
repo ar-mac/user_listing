@@ -3,8 +3,7 @@ class ProjectsController < ApplicationController
 
   def create
     if project.save
-      # it's a good practice to keep translations in i18n'f files
-      redirect_to users_path, notice: 'project created'
+      redirect_to users_path, notice: I18n.t('projects.notice.created')
     else
       render 'new'
     end
@@ -12,7 +11,7 @@ class ProjectsController < ApplicationController
 
   def update
     if project.save
-      redirect_to users_path, notice: 'project updated'
+      redirect_to users_path, notice: I18n.t('projects.notice.updated')
     else
       render 'edit'
     end
@@ -21,7 +20,7 @@ class ProjectsController < ApplicationController
   def destroy
     # it might happen that somehow project wont be deleted
     project.destroy
-    redirect_to users_path, notice: 'project deleted'
+    redirect_to users_path, notice: I18n.t('projects.notice.destroyed')
   end
 
   private

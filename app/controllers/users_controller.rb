@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     if user.save
-      redirect_to users_path, notice: 'User was successfully created.'
+      redirect_to users_path, notice: I18n.t('users.notice.created')
     else
       render :new
     end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def update
     if user.save
-      redirect_to users_path, notice: 'User was successfully updated.'
+      redirect_to users_path, notice: I18n.t('users.notice.updated')
     else
       render :edit
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def destroy
     # it might happen that somehow project wont be deleted
     user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    redirect_to users_url, notice: I18n.t('users.notice.destroyed')
   end
 
   private

@@ -14,7 +14,11 @@ en:
     title:
       new: 'New project'
       edit: 'Edit project'
-  users:
+    notice:
+      created: 'Project created'
+      updated: 'Project updated'
+      destroyed: 'Project destroyed'
+ users:
     id: 'id'
     first_name: 'first name'
     last_name: 'last name'
@@ -29,4 +33,7 @@ en:
     title:
       new: 'New user'
       edit: 'Edit user'
-
+    notice:
+      created: 'User created'
+      updated: 'User updated'
+      destroyed: 'User destroyed'

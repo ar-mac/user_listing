@@ -11,19 +11,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# when you add a gem to Gemfile, we have to a version
-gem 'haml-rails'
+gem 'haml-rails', '~> 0.9'
 
-gem 'quiet_assets',             group: :development
+gem 'will_paginate', '~> 3.0.6'
+gem 'decent_exposure', '~> 2.3.3'
+gem 'simple_form', '~> 3.2.1'
+gem 'searchkick', '~> 1.1.2'
 
-gem 'will_paginate'
-gem 'decent_exposure'
-# obsolete code
-# gem 'draper'
-# gem 'decent_decoration'
-gem 'simple_form'
-
-gem 'searchkick'
+group :development do
+  gem 'quiet_assets'
+end
 
 group :development, :test do
   gem 'web-console', '2.0.0.beta3'
@@ -34,13 +31,9 @@ group :development, :test do
   gem 'faker'
 end
 
-
 group :test do
   gem 'shoulda-matchers', '~> 3.0'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'fuubar', '~> 2.0.0'
   gem 'selleo-controller_tests',  github: 'Selleo/selleo-controller_tests'
 end
-
-
-# some blank lines in this file
