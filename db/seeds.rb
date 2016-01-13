@@ -30,3 +30,6 @@ User.all.each do |user|
 end
 
 User.reindex
+
+# ActiveRecord::RecordInvalid: Validation failed: Name is too long (maximum is 20 characters)
+# can not run seed

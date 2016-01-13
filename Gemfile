@@ -11,12 +11,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# when you add a gem to Gemfile, we have to a version
 gem 'haml-rails'
 
 gem 'quiet_assets',             group: :development
 
 gem 'will_paginate'
 gem 'decent_exposure'
+# obsolete code
 # gem 'draper'
 # gem 'decent_decoration'
 gem 'simple_form'
@@ -40,3 +42,5 @@ group :test do
   gem 'selleo-controller_tests',  github: 'Selleo/selleo-controller_tests'
 end
 
+
+# some blank lines in this file

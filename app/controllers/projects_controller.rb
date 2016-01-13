@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def create
     if project.save
+      # it's a good practice to keep translations in i18n'f files
       redirect_to users_path, notice: 'project created'
     else
       render 'new'
@@ -18,6 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    # it might happen that somehow project wont be deleted
     project.destroy
     redirect_to users_path, notice: 'project deleted'
   end

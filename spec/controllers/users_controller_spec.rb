@@ -6,6 +6,7 @@ RSpec.describe UsersController do
     let(:params) { {} }
     let!(:users) { create_list(:user, 3, :with_projects) }
 
+    # is it required? I think that after each commit to database - searchkick index a created object on elasticsarch
     before { User.reindex }
     it_behaves_like 'an action rendering view'
   end

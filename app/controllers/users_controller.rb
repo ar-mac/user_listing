@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    # it might happen that somehow project wont be deleted
     user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
