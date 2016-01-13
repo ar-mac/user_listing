@@ -10,9 +10,12 @@
     %h2= t('users.table')
     %button= link_to t('users.new'), new_user_path
     %hr
+    = will_paginate found_users
     %table
       %thead
         %tr
+          %th
+            %button= link_to t('users.id'), users_path(params_for_column_ordering(:id))
           %th
             %button= link_to t('users.first_name'), users_path(params_for_column_ordering(:first_name))
           %th
@@ -25,6 +28,7 @@
       %tbody
         - found_users.each do |user|
           %tr
+            %td= user.id
             %td= user.first_name
             %td= user.last_name
             %td= user.email

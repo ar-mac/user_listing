@@ -16,7 +16,6 @@ gem 'haml-rails', '~> 0.9'
 gem 'will_paginate', '~> 3.0.6'
 gem 'decent_exposure', '~> 2.3.3'
 gem 'simple_form', '~> 3.2.1'
-gem 'searchkick', '~> 1.1.2'
 
 group :development do
   gem 'quiet_assets'

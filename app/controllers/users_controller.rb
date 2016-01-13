@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   expose(:user, attributes: :user_params)
-  expose(:found_users) { User.search(search_params, order: order_params, include: :projects) }
+  expose(:found_users) { User.search(search_params).includes(:projects).order(order_params).distinct.paginate(page: params[:page]) }
   expose(:projects) { Project.all }
 
   def create
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def search_params
-    params.fetch(:search, {})[:q].present? ? params[:search][:q] : '*'
+    ['%', params.fetch(:search, {})[:q], '%'].join
   end
 
   def order_params
