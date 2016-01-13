@@ -18,6 +18,7 @@ en:
       created: 'Project created'
       updated: 'Project updated'
       destroyed: 'Project destroyed'
+      not_destroyed: 'Project deletion unsuccessful'
   users:
     id: 'id'
     first_name: 'first name'
@@ -37,3 +38,4 @@ en:
       created: 'User created'
       updated: 'User updated'
       destroyed: 'User destroyed'
+      not_destroyed: 'User deletion unsuccessful'

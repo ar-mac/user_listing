@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   expose(:projects) { Project.all }
 
   def create
+    user.project_ids = nil
     if user.save
+      user.update(project_ids: user_params[:project_ids])
       redirect_to users_path, notice: I18n.t('users.notice.created')
     else
       render :new
@@ -20,9 +22,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # it might happen that somehow project wont be deleted
-    user.destroy
-    redirect_to users_url, notice: I18n.t('users.notice.destroyed')
+    flash[:notice] = if user.destroy
+                       I18n.t('users.notice.destroyed')
+                     else
+                       I18n.t('users.notice.not_destroyed')
+                     end
+
+    redirect_to users_path
   end
 
   private

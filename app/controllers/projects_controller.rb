@@ -18,9 +18,13 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    # it might happen that somehow project wont be deleted
-    project.destroy
-    redirect_to users_path, notice: I18n.t('projects.notice.destroyed')
+    flash[:notice] = if project.destroy
+                       I18n.t('projects.notice.destroyed')
+                     else
+                       I18n.t('projects.notice.not_destroyed')
+                     end
+
+    redirect_to users_path
   end
 
   private
