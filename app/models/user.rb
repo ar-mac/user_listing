@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # in courtesy of http://www.regular-expressions.info/email.html
   EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\z/i
 
-  has_and_belongs_to_many :projects
+  has_and_belongs_to_many_with_deferred_save :projects
 
   validates :first_name,
             presence: true,

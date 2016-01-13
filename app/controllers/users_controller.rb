@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   expose(:projects) { Project.all }
 
   def create
-    user.project_ids = nil
     if user.save
-      user.update(project_ids: user_params[:project_ids])
       redirect_to users_path, notice: I18n.t('users.notice.created')
     else
       render :new
