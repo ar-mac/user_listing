@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
             length: { maximum: 40 }
 
   def self.search(search)
-    joins(:projects).where("'users'.'first_name' LIKE :search OR 'users'.'last_name' LIKE :search OR 'users'.'email' LIKE :search OR 'projects'.'name' LIKE :search", search: search)
+    joins(:projects).where("'users'.'first_name' LIKE :search OR 'users'.'last_name' LIKE :search OR 'users'.'email' LIKE :search OR 'projects'.'name' LIKE :search", search: search).distinct
   end
 
   # methods below normally would go to decorator, but because of the project size they wont
