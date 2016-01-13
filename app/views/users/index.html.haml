@@ -1,10 +1,13 @@
-.alert.alert-info= flash[:notice]
+- if flash[:notice]
+  .alert.alert-info= flash[:notice]
+
 %h1= t('app.dashboard')
 
 .row
   .col-md-2.col-md-offset-5
-    = simple_form_for :search, url: users_path, method: :get do |f|
-      = f.input :q
+    = search_form_for q, url: users_path, method: :get do |f|
+      = f.label t('users.find')
+      = f.search_field :first_name_or_last_name_or_email_or_projects_name_cont
 
 .row
   .col-md-8
@@ -16,13 +19,13 @@
       %thead
         %tr
           %th
-            %button= link_to t('users.id'), users_path(params_for_column_ordering(:id))
+            %button= sort_link(q, :id)
           %th
-            %button= link_to t('users.first_name'), users_path(params_for_column_ordering(:first_name))
+            %button= sort_link(q, :first_name)
           %th
-            %button= link_to t('users.last_name'), users_path(params_for_column_ordering(:last_name))
+            %button= sort_link(q, :last_name)
           %th
-            %button= link_to t('users.email'), users_path(params_for_column_ordering(:email))
+            %button= sort_link(q, :email)
           %th= t('users.projects')
           %th= t('users.controls')
 

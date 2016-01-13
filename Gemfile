@@ -17,6 +17,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'decent_exposure', '~> 2.3.3'
 gem 'simple_form', '~> 3.2.1'
 gem 'deferred_associations', '~> 0.5.7'
+gem 'ransack'
 
 group :development do
   gem 'quiet_assets'

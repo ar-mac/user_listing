@@ -31,6 +31,7 @@ en:
     confirm_destroy: 'user %{name} will be destroyed'
     table: 'Users'
     new: 'New User'
+    find: 'Find user'
     title:
       new: 'New user'
       edit: 'Edit user'
